@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  /*background: var(--background);*/
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(red, white);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.confetti-piece {
+  animation: makeItRain 3000ms infinite linear;
+}
+
+@keyframes makeItRain {
+  from {
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(90vh);
+  }
+}
