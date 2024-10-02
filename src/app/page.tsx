@@ -82,15 +82,15 @@ export default function Home() {
   const renderLetters = () => {
     const alphabetic = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     return (
-      <div className="w-1/2 grid grid-cols-6 gap-4 max-md:flex max-md:flex-row max-md:flex-wrap max-md:w-full">
+      <div className="w-1/2 grid grid-cols-6 gap-4 max-md:mt-5 max-md:flex max-md:flex-row max-md:flex-wrap max-md:w-full">
         {alphabetic.map((letter, index) => {
           return (
             <div
               key={"letter_" + index}
               className={lettersUsed.includes(letter) || gameOver ?
-                "flex w-10 h-10 justify-center items-center border-solid border-2 border-black bg-blue-200 text-white md:m-5 rounded-xl"
+                "pokemon-text text-2xl cursor-default bg-blue-200 flex w-11 h-11 md:pb-3 justify-center items-center border-solid border-2 border-black md:m-5 rounded-full"
                 :
-                "flex w-10 h-10 justify-center items-center border-solid border-2 border-black bg-blue-600 hover:bg-blue-400 text-white md:m-5 rounded-xl"
+                "pokemon-text text-2xl cursor-pointer fondo-letras flex w-11 h-11 md:pb-3 justify-center items-center border-solid border-2 border-black md:m-5 rounded-full"
               }
               onClick={lettersUsed.includes(letter) || gameOver ? null : () => handlerLettersUsed(letter)}
             >
@@ -149,11 +149,10 @@ export default function Home() {
 
   return (
     pokemon && (
-      <div className="flex flex-col justify-center items-center p-10 max-md:p-3">
-        <h1 className="font-serif text-5xl max-md:text-xl font-extrabold max-md:font-bold text-white">¿ Quien es ese Pokémon ?</h1>
+      <div className="flex flex-col justify-center items-center max-md:p-3">
+        <h1 className="pokemon-text text-6xl max-md:text-3xl md:mt-20">¿ Quien es ese Pokémon ?</h1>
         <div className="flex flex-row max-md:mt-4 mt-14 max-md:flex-col max-md:justify-center items-center">
-          {renderLetters()}
-          <div className="flex flex-col justify-center items-center p-10 max-md:p-0">
+          <div className="flex flex-col justify-center items-center p-10 pb-0 max-md:p-0">
             <div className="flex flex-row justify-center items-center">
               <img src={gameOver && errores < cantidadMaximaDeErroresPermitidos ?
                 pokemon.sprites.front_default :
@@ -165,6 +164,7 @@ export default function Home() {
             </div>
             {renderCantidadLetras()}
           </div>
+          {renderLetters()}
         </div>
         {
           gameOver && errores < cantidadMaximaDeErroresPermitidos && (

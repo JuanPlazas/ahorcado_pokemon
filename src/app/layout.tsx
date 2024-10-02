@@ -14,6 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+      <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet" />
         {children}
       </body>
     </html>

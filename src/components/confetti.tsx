@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Confetti() {
-  const qtyConfetti = 1000;
+  const qtyConfetti = 500;
   const totalheight = 95; // total screen in makeItRain
 
   const renderConfetties = () => {

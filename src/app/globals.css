@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
 :root {
   --background: #ffffff;
@@ -16,11 +17,15 @@
 
 body {
   color: var(--foreground);
-  /*background: var(--background);*/
+  background-image: url("../../public/fondo.png");
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(red, white);
   background-repeat: no-repeat;
   background-size: cover;
+}
+@media not all and (min-width: 768px) {
+  body {
+    background-image: url("../../public/fondo-mobile.png");
+  }
 }
 
 @layer utilities {
@@ -49,4 +54,21 @@ body {
   to {
     transform: translateY(90vh);
   }
+}
+
+.pokemon-text {
+  font-family: 'Pokemon Solid', sans-serif;
+  color: yellow;
+  text-shadow: 
+      2px 2px 0px blue,
+      -2px -2px 0px blue,
+      2px -2px 0px blue,
+      -2px 2px 0px blue,
+      2px 2px 0px blue;
+}
+
+.fondo-letras {
+  background-image: url("../../public/pokebola.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
